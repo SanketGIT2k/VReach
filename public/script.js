@@ -7,7 +7,16 @@ const myPeer = new Peer(undefined, {
 })
 
 const myVideo = document.createElement('video')
+myVideo.controls = true
 myVideo.muted = true;
+
+
+const myScreen = document.createElement('video')
+myScreen.controls = true
+myVideo.muted = true;
+
+
+
 const peers = {}
 
 let myVideoStream
@@ -33,6 +42,7 @@ navigator.mediaDevices.getUserMedia({
 
   socket.on('user-connected', userId => {
     connectToNewUser(userId, stream)
+    console.log(userId)
   })
   // input value
   let text = $("input");
@@ -85,7 +95,7 @@ function addVideoStream(video, stream) {
 
 function addScreenStream(screen, stream) {
   screen.srcObject = stream
-  screen.addEventListener ('loadedmetadata' , ()=>{
+  screen.addEventListener('loadedmetadata', () => {
     screen.play()
   })
   videoGrid.append(screen)
@@ -211,35 +221,35 @@ const screenShare = () => {
 
   // document.getElementById("screen-share").addEventListener('click', (e) =>{
 
-    navigator.mediaDevices.getDisplayMedia({video: {cursor: "always"}, audio: {echoCancellation :true, noiseSuppression: true}}
-    ).then((stream)=>{
-      myScreenStream = stream;
+  navigator.mediaDevices.getDisplayMedia({ video: { cursor: "always" }, audio: { echoCancellation: true, noiseSuppression: true } }
+  ).then((stream) => {
+    myScreenStream = stream;
 
-      addVideoStream(myVideo, stream);
-      myPeer.on('call', call => {
-        call.answer(stream)
-        const video = document.createElement('video')
-    
-    
-        call.on('stream', userVideoStream => {
-          addVideoStream(video, userVideoStream)
-          call.peerConnection.getSenders()[1].replaceTrack(video)
-        })
+    addVideoStream(myVideo, stream);
+    myPeer.on('call', call => {
+      call.answer(stream)
+      const video = document.createElement('video')
 
-        call.on('close', () => {
-          video.remove()
-        })
 
+      call.on('stream', userVideoStream => {
+        addVideoStream(video, userVideoStream)
+        call.peerConnection.getSenders()[1].replaceTrack(video)
       })
 
-      setStopVideo();
+      call.on('close', () => {
+        video.remove()
+      })
 
-      
-      
+    })
 
-      // sender.replaceTrack(videoTrack).kind
+    setStopVideo();
 
-      // videoGrid.append(sender)
+
+
+
+    // sender.replaceTrack(videoTrack).kind
+
+    // videoGrid.append(sender)
 
     // })
     // .catch((err) =>{
@@ -251,19 +261,35 @@ const screenShare = () => {
 }
 
 async function screenSharing() {
-  await navigator.mediaDevices.getDisplayMedia().then(stream => {
-  for (let [key, value] of myPeer._connections.entries()) {
-  myPeer._connections.get(key)[0].peerConnection.getSenders()[1].replaceTrack(stream.getTracks()[0])
-  
-  }
-  
+
+  navigator.mediaDevices.getDisplayMedia({ video: { cursor: "always" }, audio: { echoCancellation: true, noiseSuppression: true } }
+  ).then((stream) => {
+    myScreenStream = stream;
+
+    addVideoStream(myScreen, stream)
+    myPeer.on('call', call => {
+      call.answer(stream)
+      const video = document.createElement('video')
+
+
+      call.on('stream', userVideoStream => {
+        addVideoStream(video, userVideoStream)
+      })
+    })
+
   })
-  }
+}
 
 const stopMeeting = () => {
-//   myPeer.on('disconnect', disconnect =() =>{
-//       window.close()
-//   })
+  //   myPeer.on('disconnect', disconnect =() =>{
+  //       window.close()
+  //   })
   window.close()
 }
 
+const maximiseVideo = (video) => {
+  console.log("BHADWA")
+
+  video.style.width = '800px'
+  video.style.height = '600px'
+}

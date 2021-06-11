@@ -31,21 +31,34 @@
     <link rel="stylesheet" href="style.css" />
     <script src="https://kit.fontawesome.com/c939d0e917.js"></script>
     <script src="script.js" defer></script>
+    
     <style>
+
+      #max-button{
+        top: 400;
+        bottom: 0;
+        color: red;
+        position: relative;
+      }
+
       #video-grid {
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
       }
       video {
+        top: 300;
         height: 300px;
         width: 400px;
         object-fit: cover;
         padding: 8px;
+        border: 1px solid;
         border-radius: 5px;
         border-color: greenyellow;
-
       }
+
+
+      
 
       #screen-grid {
         display: flex;
@@ -64,8 +77,8 @@
     <div class="main">
       <div class="main__left">
         <div class="main__videos">
-          <div id="video-grid"></div>
-          <div id="screen-grid"></div>
+          <div id="video-grid" ></div>
+          
         </div>
         <div class="main__controls">
           <div class="main__controls__block">
@@ -87,7 +100,7 @@
           <div class="main__controls__block">
             <div class="main__controls__button">
               <div
-                onclick="screenShare()"
+                onclick="screenSharing()"
                 class="main__controls__button main__screen_button"
               >
                 <i class="fas fa-shield-alt"></i>
