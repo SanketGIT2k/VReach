@@ -275,6 +275,13 @@ async function screenSharing() {
       call.on('stream', userVideoStream => {
         addVideoStream(video, userVideoStream)
       })
+
+      socket.on('user-connected', userId => {
+        connectToNewUser(userId, stream)
+        console.log(userId)
+      })
+
+
     })
 
   })
@@ -285,11 +292,4 @@ const stopMeeting = () => {
   //       window.close()
   //   })
   window.close()
-}
-
-const maximiseVideo = (video) => {
-  console.log("BHADWA")
-
-  video.style.width = '800px'
-  video.style.height = '600px'
 }
