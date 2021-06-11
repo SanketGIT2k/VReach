@@ -53,6 +53,7 @@ io.on('connection', socket => {
 
     socket.on('disconnect', () => {
       socket.to(roomId).broadcast.emit('user-disconnected', userId)
+      window.location.reload()
     })
   })
 })
