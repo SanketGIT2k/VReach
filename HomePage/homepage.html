@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VReach</title>
+
+    <script src="../VReach/server.js"></script>
+
+    <link rel="stylesheet" href="./homeStyle.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <script src="../Login-Signup/authx.js"></script>
+  <body>
+    <div class="virtual-reach">
+      <div class="home-page">
+        <div class="nav-bar">
+          <a style="margin-left: 10px" href="#home">
+            <img src="./Images/logo.png" width="55" height="60" />
+          </a>
+
+          <div class="nav-bar-mid">
+            <a href="#aboutUs">About Us</a>
+            <a href="#developers">dev</a>
+            <a>Join Meeting</a>
+            <a href="#contactus">Contact us</a>
+          </div>
+
+          <div class="nav-bar-right">
+            <a href="/Login-Signup">Login/Sign up</a>
+            <a onclick="signout()">Logout</a>
+          </div>
+        </div>
+
+        <div id="home" class="home-main">
+          <div class="home-main-title">
+            <h2>Welcome To</h2>
+            <h2 class="home-main-cname">VReach</h2>
+          </div>
+          <p>A video conferencing solution for free</p>
+          <div class="meeting-button">
+            <a href="/startMeeting">Start Meeting</a>
+          </div>
+        </div>
+        <div class="wave"></div>
+      </div>
+
+      <div class="about-us" id="aboutUs">
+        <h1>About us</h1>
+        <p>
+          We at VReach try to provide a solution to host your meeting in a
+          virtual mode creating your virtual reach.
+        </p>
+      </div>
+
+      <div class="dev" id="developers">
+        <h1>The Developers</h1>
+        <div class="devs">
+          <div class="the-two-devs">
+            <div class="dev-1">
+              <img src="./Images/Sanket.png" alt="Sanket" />
+              <h3>Sanket Sharma</h3>
+              <p>
+                Quick learning and tech enthusiast third year B.Tech undergrad.
+                Has good measurable, scientific, and observatory aptitudes.
+                Great at communicating and connecting with others. Searching for
+                a chance to display abilities and learn new things and get
+                exposure to modern industrial culture.
+              </p>
+            </div>
+            <div class="dev-2">
+              <img src="./Images/Harsh.jpg" alt="Sanket" />
+              <h3>Harsh Gauttam</h3>
+              <p>
+                Quick learning, self-propelled, and inventive B.Tech undergrad
+                in the third year. Has good measurable, scientific, and
+                observatory aptitudes. Great at communicating and connecting
+                with others. Searching for a chance to display my abilities and
+                learn new things and get exposure to modern industrial culture.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contactus" id="contactus">
+        <div class="contact-details">
+          <div class="phone">
+            <h4>Call Us</h4>
+            <p>+918058240215</p>
+            <p>+917014586535</p>
+          </div>
+
+          <div class="email">
+            <h4>Mail Us @</h4>
+            <p>sanket.sharma.2000@gmail.com</p>
+            <p>harshgauttamofficial@gmail.com</p>
+          </div>
+
+          <div class="linkedin">
+            <h4>LinkedIn</h4>
+            <a href="https://www.linkedin.com/in/sanket-sharma-250647198/"
+              >Sanket Sharma
+            </a>
+            <a href="https://www.linkedin.com/in/harsh-gauttam-5898b8199/"
+              >Harsh Gauttam</a
+            >
+          </div>
+        </div>
+        <h1>Contact Us</h1>
+      </div>
+    </div>
+  </body>
+</html>
