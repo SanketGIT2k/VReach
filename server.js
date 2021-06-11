@@ -44,7 +44,6 @@ io.on('connection', socket => {
   socket.on('join-room', (roomId, userId) => {
     socket.join(roomId)
     socket.to(roomId).broadcast.emit('user-connected', userId);
-    window.location.reload()
     // messages
     socket.on('message', (message) => {
       //send message to the same room
